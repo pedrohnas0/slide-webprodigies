@@ -17,8 +17,9 @@ const AutomationList = (props: Props) => {
   const { latestVariable } = useMutationDataState(['create-automation'])
   console.log(latestVariable)
   const { pathname } = usePaths()
+  
   const optimisticUiData = useMemo(() => {
-    if ((latestVariable?.variables, data)) {
+    if ((latestVariable && latestVariable?.variables &&  data)) {
       const test = [latestVariable.variables, ...data.data]
       return { data: test }
     }
